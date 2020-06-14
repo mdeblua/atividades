@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
@@ -26,21 +25,6 @@ namespace API.Application.Activities
 
             public async Task<List<Activity>> Handle(Query request, CancellationToken cancellationToken)
             {
-
-                // try
-                // {
-                //     for (int i = 0; i < 10; i++)
-                //     {
-                //         cancellationToken.ThrowIfCancellationRequested();
-                //         await Task.Delay(1500, cancellationToken);
-                //         _logger.LogInformation($"Task {i} has completed");
-                //     }
-                // }
-                // catch (Exception ex) when (ex is TaskCanceledException)
-                // {
-                //     _logger.LogInformation("Task was cancelled");
-                // }
-
                 return await _dataContext.Activities.ToListAsync(cancellationToken);
             }
         }
